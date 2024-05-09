@@ -21,7 +21,7 @@ object Debug extends IOApp {
 
     def io(body: Json, local: Boolean) =
       val endpoint =
-        if (!local) uri"https://httpbin.org/post"
+        if (!local) uri"https://httpbin.org/post" // random error: Body Has Been Consumed Completely Already
         else uri"http://127.0.0.1:8081/post" // switch to local api, the error will not occur
 
       val request = Request[IO](Method.POST, endpoint).withEntity(body)
