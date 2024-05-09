@@ -20,9 +20,9 @@ libraryDependencies ++= Seq(
   "io.circe" %% "circe-generic" % circeVersion,
   "io.circe" %% "circe-parser" % circeVersion,
   "io.circe" %% "circe-literal" % circeVersion,
-  "org.typelevel" %% "log4cats-core" % "2.3.1",
-  "org.typelevel" %% "log4cats-slf4j" % "2.3.1",
-  "ch.qos.logback" % "logback-classic" % "1.4.12",
+  "org.typelevel" %% "log4cats-core" % "2.6.0",
+  "org.typelevel" %% "log4cats-slf4j" % "2.6.0",
+  "ch.qos.logback" % "logback-classic" % "1.5.6",
 )
 
 Global / onChangedBuildSource := ReloadOnSourceChanges

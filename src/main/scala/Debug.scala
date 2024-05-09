@@ -8,14 +8,17 @@ import org.http4s.dsl.io.*
 import org.http4s.ember.client.EmberClientBuilder
 import org.http4s.ember.server.EmberServerBuilder
 import org.http4s.implicits.*
-import org.typelevel.log4cats.Logger
-import org.typelevel.log4cats.slf4j.{Slf4jLogger, loggerFactoryforSync}
+import org.typelevel.log4cats.LoggerFactory
+import org.typelevel.log4cats.slf4j.Slf4jFactory
 
 
 object Debug extends IOApp {
 
   override def run(args: List[String]): IO[ExitCode] = {
-    given logger: Logger[IO] = Slf4jLogger.getLogger[IO]
+
+    implicit val logging: Slf4jFactory[IO] = Slf4jFactory.create[IO]
+    val logger = LoggerFactory[IO].getLogger
+
 
     val client = EmberClientBuilder.default[IO].build
 
